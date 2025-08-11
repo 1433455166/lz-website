@@ -1,8 +1,8 @@
 <template>
   <div class="app">
     <header class="header">
-      <h1>设备自适应演示页面</h1>
-      <p class="device-info">当前设备：{{ deviceType }}</p>
+      <h1>欢迎来到狼族</h1>
+      <p class="device-info">当前设备类型：{{ deviceType }}</p>
     </header>
 
     <main class="main-content">

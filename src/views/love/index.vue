@@ -56,19 +56,45 @@ export default {
       }
     }
 
+    // 获取随机文字
     function getText() {
-      var val = Math.random() * 10;
-      if (val > 1 && val <= 3) {
-        return "爱你一辈子";
-      } else if (val > 3 && val <= 5) {
-        return "亲爱的，爱你！";
-      } else if (val > 5 && val <= 7) {
-        return "喜欢你";
-      } else if (val > 7 && val <= 9) {
-        return "喜欢你，曹俏俏";
-      } else {
-        return "I Love You";
-      }
+        // var val = Math.random() * 10;
+        // if (val > 1 && val <= 3) {
+        //     return "爱你一辈子";
+        // } else if (val > 3 && val <= 5) {
+        //     return "亲爱的，爱你！";
+        // } else if (val > 5 && val <= 7) {
+        //     return "喜欢你";
+        // } else {
+        //     return "I Love You";
+        // }
+
+        const textArray = [
+            "爱你一辈子！",
+            "亲爱的，爱你！",
+            "喜欢你！",
+            "爱你到永远，亲爱的！",
+            "爱你，是我的幸福！",
+            "爱你，是我的光！",
+            "一辈子，只爱你！",
+            "心里住着你，哪儿都不去！",
+            "想你，是今天的小习惯！",
+            "喜欢你，藏不住了！",
+            "你是我的光，我的暖！",
+            "爱你如初，岁岁年年！",
+            "一见你，心就软了！",
+            "余生，请多指教！",
+            "有你在，就是家！",
+            "你是我生命中的一部分！",
+            "你是我最爱的人！",
+
+            "I Love You!",
+            'I love you, today and always!',
+            'Crazy in love with you!',
+            'My heart is yours!',
+        ];
+        const randomIndex = Math.floor(Math.random() * textArray.length);
+        return textArray[randomIndex];
     }
 
     function Heart(type) {

@@ -1,12 +1,12 @@
 <template>
   <div class="app">
     <header :class='headerClass'>
-        <img class="width-200" src="../../assets/images/logo.svg" alt="">
+        <img :style="logoProps.style" :src="logoProps.src" alt="">
         <div class="width-200">
             <h1>欢迎来到狼族</h1>
-            <p class="device-info">当前设备类型：{{ deviceTypeText[deviceType] }}</p>
+            <!-- <p class="device-info">当前设备类型：{{ deviceTypeText[deviceType] }}</p> -->
         </div>
-        <div class="width-200">用户信息</div>
+        <div :style="userProps.style">用户信息</div>
     </header>
 
     <main class="main-content">
@@ -24,6 +24,8 @@
 import { ref, onMounted, computed } from 'vue'
 import DeviceCard from '../../components/DeviceCard.vue'
 import { DEVICE_TYPE } from '../../common/enum'
+import { getOS, getBrowser, isMobile, isIPad } from '../../utils/device'
+import { lzSuccessLog } from '../../utils/log'
 
 // 卡片数据
 const cards = ref([
@@ -56,8 +58,13 @@ const updateDeviceType = () => {
 
 // 初始判断 + 监听窗口变化
 onMounted(() => {
-  updateDeviceType()
-  window.addEventListener('resize', updateDeviceType)
+  updateDeviceType();
+  window.addEventListener('resize', updateDeviceType);
+//   lzSuccessLog("操作系统: ", getOS());
+//   lzSuccessLog("浏览器: ", getBrowser());
+  lzSuccessLog("是否是移动端: ", isMobile());
+  console.log('%c 当前设备类型：', 
+           'background: orange; color: white; padding: 2px 6px; border-radius: 3px;', deviceTypeText[deviceType.value]);
 })
 
 const headerClass = computed(() => {
@@ -67,7 +74,24 @@ const headerClass = computed(() => {
     ];
 })
 
-console.log('headerClass', headerClass);
+const logoProps = computed(() => {
+    return {
+        style: {
+            width: deviceType.value === DEVICE_TYPE.phone ? '64px' : '200px',
+        },
+        src: deviceType.value === DEVICE_TYPE.phone 
+          ? '/src/assets/images/wolf003.svg' 
+          : '/src/assets/images/logo.svg',
+    }
+})
+
+const userProps = computed(() => {
+    return {
+        style: {
+            width: deviceType.value === DEVICE_TYPE.phone ? '64px' : '200px',
+        },
+    }
+})
 
 // 清理事件监听（可选）
 // 可在 onUnmounted 中移除监听
@@ -83,10 +107,6 @@ console.log('headerClass', headerClass);
   padding: 0;
 }
 
-.width-200 {
-    width: 200px;
-}
-
 .header {
   text-align: center;
   padding: 1rem 1rem;
@@ -99,9 +119,10 @@ console.log('headerClass', headerClass);
 }
 
 .header-phone {
-    flex-direction: column;
-    justify-content: center;
+    /* flex-direction: column; */
+    justify-content: space-around;
     align-items: center;
+    padding: 1rem 0;
 }
 
 .header h1 {

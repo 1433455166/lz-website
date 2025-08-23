@@ -77,3 +77,7 @@ npm run build
 
 1. 在 `src/assets` 目录下新增静态资源文件。
 2. 在 `public/index.html` 文件中引用静态资源文件。  
+
+
+# 待验证
+- [ ] Vlog是否生产环境没有

@@ -80,8 +80,8 @@ const logoProps = computed(() => {
             width: deviceType.value === DEVICE_TYPE.phone ? '64px' : '200px',
         },
         src: deviceType.value === DEVICE_TYPE.phone 
-          ? '/src/assets/images/wolf003.svg' 
-          : '/src/assets/images/logo.svg',
+          ? '/images/wolf003.svg' 
+          : '/images/logo.svg',
     }
 })
 

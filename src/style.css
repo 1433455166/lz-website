@@ -66,6 +66,10 @@ button:focus-visible {
     width: 100px;
 }
 
+.margin-10-0 {
+    margin: 10px 0;
+}
+
 #app {
   width: 100%;
   /* margin: 0 auto; */
@@ -88,5 +92,7 @@ button:focus-visible {
 
 /* 可选：让切换按钮也贴底 */
 #__vconsole .vc-switch {
-  bottom: 0 !important;
+    /* bottom: 0 !important; */
+    bottom: 0;
+    /* top: auto !important; */
 }

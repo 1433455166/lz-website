@@ -11,7 +11,19 @@ const routes = [
     },
     {
         path: "/love",
-        component: () => import("../views/love/index.vue"),
+        component: () => import("../views/love.vue"),
+    },
+    // {
+    //     path: "/cv",
+    //     component: () => import("../views/cv.vue"),
+    // },
+    // {
+    //     path: "/chat",
+    //     component: () => import("../views/chat.vue"),
+    // },
+    {
+        path: "/support",
+        component: () => import("../views/support.vue"),
     },
 ];
 
